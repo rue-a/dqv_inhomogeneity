@@ -1,0 +1,23 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <https://www.w3.org/TR/xmlschema-2/#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix inho: <https://ex.org/inhomogeneity_profile/#> .
+@prefix : <https://ex.org/#> .
+
+inho:Constraint a rdfs:Class ;
+    rdfs:label "Constraint"@en ;
+    rdfs:comment "An thing that holds spatial, temporal and/or thematic constraints. The constraints are applied by using this thing as subject to one or more of the following properties: dct:spatial, dct:temporal, inho:thematical."@en .
+
+inho:isConstrainedBy a rdf:Property ;
+    rdfs:domain dqv:QualityMeasurement ;
+    rdfs:range inho:Constraint ;
+    rdfs:label "is constrained by"@en ;
+    rdfs:comment "Constrains the validity of a DQV measurement spatially, temporally and/or thematically"@en . 
+
+
+inho:thematical a rdf:Property ;
+    rdfs:label "Thematic Scope"@en ;
+    rdfs:comment "Thematic characteristics of the subject. The object should be a resource that gives information about the thematic scope of the subject. This includes statements like 'The subject is a cow.' or 'The subject is light in the wavelength interval from 560 - 520 nm, i.e. green light.'"@en .
