@@ -11,7 +11,7 @@
 # --- DEFINITIONS ---
 inho:thematical a rdf:Property ;
     rdfs:label "Thematic Scope"@en ;
-    rdfs:comment "Thematic characteristics of the subject. The object should be a resource that gives information about the thematic scope of the subject. This includes statements like 'The subject is a cow.' or 'The subject is light in the wavelength interval from 560 - 520 nm, i.e. green light.'"@en .
+    rdfs:comment "Thematic characteristics of the subject. The object should be a resource that gives information about the thematic scope of the subject. This includes statements like 'The subject is a cow.' or 'The subject is radiation, in the wavelength interval from 560 - 520 nm, i.e. green light.'"@en .
 # ---
 
 # --- EXAMPLES ---
@@ -24,6 +24,6 @@ inho:thematical a rdf:Property ;
     dct:temporal :temporalExtentOfLittleIceAge .
 
 :spatialExtentOfLittleIceAge a dct:Location;
-    
+
 
 # ---
