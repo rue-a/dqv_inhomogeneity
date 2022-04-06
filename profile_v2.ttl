@@ -4,6 +4,8 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix xsd: <https://www.w3.org/TR/xmlschema-2/#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix gsp:  <http://www.opengis.net/ont/geosparql#>.
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix inho: <https://ex.org/inhomogeneity_profile/#> .
 @prefix : <https://ex.org/#> .
 
@@ -19,11 +21,26 @@ inho:thematical a rdf:Property ;
 # little ice age - define spatial, temporal and thematic constraints as named nodes (not blank nodes)
 :measurementOfGeodataQuality a dqv:QualityMeasurement ;
     dqv:isMeasurementOf :aDataQualityMetric ;
-    dqv:value "52"^^xsd:integer ;
-    dct:spatial :spatialExtentOfLittleIceAge;
+    dqv:value "42"^^xsd:integer ;
+    dct:spatial :northernHemisphere;
     dct:temporal :temporalExtentOfLittleIceAge .
 
-:spatialExtentOfLittleIceAge a dct:Location;
+:northernHemisphere a dct:Location;
+    gsp:hasDefaultGeometry [
+        gsp:asWKT "POLYGON((-180 0,-180 90,180 90,180 0,-180 0))"^^gsp:wktLiteral 
+    ] .
 
+:southernHemisphere a dct:Location;
+    gsp:hasDefaultGeometry [
+        gsp:asWKT "POLYGON((-180 0,-180 -90,180 -90,180 0,-180 0))"^^gsp:wktLiteral 
+    ] .
 
+:testPointA gsp:hasDefaultGeometry [
+            gsp:asWKT "Point((30 30))"^^gsp:wktLiteral
+        ] .
+
+:testPointB gsp:hasDefaultGeometry [
+            gsp:asWKT "Point((-30 -30))"^^gsp:wktLiteral
+        ] .
+    
 # ---
