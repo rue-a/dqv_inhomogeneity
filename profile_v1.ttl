@@ -23,3 +23,33 @@ inho:thematical a rdf:Property ;
     rdfs:label "Thematic Scope"@en ;
     rdfs:comment "Thematic characteristics of the subject. The object should be a resource that gives information about the thematic scope of the subject. This includes statements like 'The subject is a cow.' or 'The subject is radiation, in the wavelength interval from 560 - 520 nm, i.e. green light.'"@en .
 # ---
+
+
+# --- EXAMPLES ---
+
+# little ice age - we define the spatial constraint in a separate node, since northern hemisphere suited for reuse. The temporal constraint is defined inline by using a blank node.
+:measurementOfGeodataQuality a dqv:QualityMeasurement ;
+    dqv:isMeasurementOf :aDataQualityMetric ;
+    dqv:value "42"^^xsd:integer ;
+    profile:isConstrainedBy :littleIceAge .
+
+:littleIceAge a profile:Constraint ;
+    dct:spatial :northernHemisphere;
+    dct:temporal [ 
+        a dct:PeriodOfTime , time:ProperInterval ;
+        time:hasBeginning [ 
+            a time:Instant ;
+            time:inXSDgYear "1570"^^xsd:gYear ;
+        ];
+        time:hasEnd [ 
+            a time:Instant ;
+            time:inXSDgYear "1900"^^xsd:gYear ;
+        ] 
+    ].
+
+:northernHemisphere a dct:Location, gsp:Feature;
+    gsp:hasDefaultGeometry [
+        gsp:asWKT "POLYGON((-180 0,-180 90,180 90,180 0,-180 0))"^^gsp:wktLiteral 
+    ] .
+    
+# ---

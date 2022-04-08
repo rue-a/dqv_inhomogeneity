@@ -14,33 +14,53 @@
 inho:thematical a rdf:Property ;
     rdfs:label "Thematic Scope"@en ;
     rdfs:comment "Thematic characteristics of the subject. The object should be a resource that gives information about the thematic scope of the subject. This includes statements like 'The subject is a cow.' or 'The subject is radiation, in the wavelength interval from 560 - 520 nm, i.e. green light.'"@en .
-# ---
+# --- ---
 
 # --- EXAMPLES ---
+# Arguable, the examples that are shown here, are constructed. They illustrate how the objects of the properties dct:spatial, dct:temporal and profile:thematic should be defined. 
 
-# little ice age - define spatial, temporal and thematic constraints as named nodes (not blank nodes)
-:measurementOfGeodataQuality a dqv:QualityMeasurement ;
-    dqv:isMeasurementOf :aDataQualityMetric ;
-    dqv:value "42"^^xsd:integer ;
-    dct:spatial :northernHemisphere;
-    dct:temporal :temporalExtentOfLittleIceAge .
-
-:northernHemisphere a dct:Location;
+# little ice age - we define the spatial constraint in a separate node, since northern hemisphere suited for reuse. The temporal constraint is defined inline by using a blank node.
+:northernHemisphere a dct:Location, gsp:Feature;
     gsp:hasDefaultGeometry [
         gsp:asWKT "POLYGON((-180 0,-180 90,180 90,180 0,-180 0))"^^gsp:wktLiteral 
     ] .
 
-:southernHemisphere a dct:Location;
-    gsp:hasDefaultGeometry [
-        gsp:asWKT "POLYGON((-180 0,-180 -90,180 -90,180 0,-180 0))"^^gsp:wktLiteral 
-    ] .
+:measurementOfGeodataQuality a dqv:QualityMeasurement ;
+    dqv:isMeasurementOf :aDataQualityMetric ;
+    dqv:value "42"^^xsd:integer ;
+    dct:spatial :northernHemisphere;
+    dct:temporal [ 
+        a dct:PeriodOfTime , time:ProperInterval ;
+        time:hasBeginning [ 
+            a time:Instant ;
+            time:inXSDgYear "1570"^^xsd:gYear ;
+        ];
+        time:hasEnd [ 
+            a time:Instant ;
+            time:inXSDgYear "1900"^^xsd:gYear ;
+        ] 
+    ].
 
-:testPointA gsp:hasDefaultGeometry [
-            gsp:asWKT "Point((30 30))"^^gsp:wktLiteral
-        ] .
 
-:testPointB gsp:hasDefaultGeometry [
-            gsp:asWKT "Point((-30 -30))"^^gsp:wktLiteral
-        ] .
     
 # ---
+
+# using the wavelength sensibilities of satellite sensors as thematic constraints. Could be used if data quality differs for the different sensors on the platform. 
+:electromagnaticRadiation a skos:Concept ;
+    skos:perfLabel "Electromagnetic Radiation" .
+    
+:visibleLight a skos:Concept ;
+    skos:perfLabel "Visisble Light" ;
+    skos:narrower :electromagneticRadiation .
+
+:greenLight a skos:Concept ;
+    skos:prefLabel "Green Light" ;
+    skos:definition "The part of the visible light, that we percieve as green. Wavelength specturm: 495–570 nm" ;
+    skos:narrower :visibleLight .
+
+:measurementOfGeodataQuality2 a dqv:QualityMeasurement ;
+    dqv:isMeasurementOf :anotherDataQualityMetric ;
+    dqv:value "42.42"^^xsd:double ;
+    profile:thematic :greenLight .
+
+# --- ---
