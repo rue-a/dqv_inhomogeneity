@@ -1,7 +1,7 @@
-@prefix dqv:   <http://www.w3.org/ns/dqv#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix profile: <https://ex.org/profile/#> .
-@prefix :   <https://ex.org/#> .
+@prefix : <https://ex.org/#> .
 
 # version 1 – defining a separate constraint object
 :qualityMeasurement a dqv:QualityMeasurement;
