@@ -1,0 +1,10 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix profile: <https://ex.org/profile/#> .
+@prefix : <https://ex.org/#> .
+
+
+profile:thematical a rdf:Property ;
+    rdfs:label "Thematic Scope"@en ;
+    rdfs:comment "Used to describe the thematic characteristics of the subject. The object should be a resource that gives information about the thematic scope of the subject. Preferably, this is a resource in the LOD-Cloud. Alternatively, it is recommended to define the resource as a SKOS-Concept"@en .

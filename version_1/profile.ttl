@@ -1,0 +1,22 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix profile: <https://ex.org/profile/#> .
+@prefix : <https://ex.org/#> .
+
+
+profile:Constraint a rdfs:Class ;
+    rdfs:label "Constraint"@en ;
+    rdfs:comment "An thing that holds spatial, temporal and/or thematic constraints. The constraints are applied by using this thing as subject to one or more of the following properties: dct:spatial, dct:temporal, profile:thematical."@en .
+
+profile:isConstrainedBy a rdf:Property ;
+    rdfs:domain dqv:QualityMeasurement ;
+    rdfs:range profile:Constraint ;
+    rdfs:label "is constrained by"@en ;
+    rdfs:comment "Constrains the validity of a DQV measurement spatially, temporally and/or thematically"@en . 
+
+profile:thematical a rdf:Property ;
+    rdfs:label "Thematic Scope"@en ;
+    rdfs:comment "Used to describe the thematic characteristics of the subject. The object should be a resource that gives information about the thematic scope of the subject. Preferably, this is a resource in the LOD-Cloud. Alternatively, it is recommended to define the resource as a SKOS-Concept"@en .
+
+
