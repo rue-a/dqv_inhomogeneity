@@ -19,7 +19,7 @@
     gsp:hasDefaultGeometry [
         gsp:asWKT "POLYGON((-180 20,-180 90,180 90,180 20,-180 20))"^^gsp:wktLiteral 
     ] .
-    
+
 :littleIceAgeClimate a profile:Constraint, skos:Concept ;
     skos:prefLabel "Little Ice Age climate"@en ;
     skos:definition "The \"‘Little Ice Age’ climate is defined as a [...] time interval of about 330 years (c. AD 1570–1900) when Northern Hemisphere summer temperatures (land areas north of 20°N) fell significantly below the AD 1961–1990 mean.\" [Matthews, J. A. and Briffa, K. R.: The ‘little ice age’: re-evaluation of an evolving concept, Geografiska Annaler: Series A, Physical Geography, 87, 17–36, https://doi.org/10.1111/j.0435-3676.2005.00242.x, 2005.]" ;
