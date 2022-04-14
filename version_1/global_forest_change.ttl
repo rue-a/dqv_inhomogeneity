@@ -35,6 +35,11 @@
         time:inXSDgYear "2012"^^xsd:gYear ;
     ] .
 
+
+:tropes a dct:Location, gsp:Feature;
+    gsp ... ;
+
+
 :forest a skos:Concept ;
     skos:prefLabel "Forest"@en ;
     skos:definition "\" [...] forest cover is defined as 25% or greater canopy closure at the Landsat pixel scale (30-m × 30-m spatial resolution) for trees >5 m in height.\" [https://www.pnas.org/doi/10.1073/pnas.0912668107]"@en .
@@ -86,8 +91,9 @@
     ];
     dct:spatial [ a dct:Location, gsp:Feature;
     gsp:hasDefaultGeometry [
-        gsp:asWKT "POLYGON((-180 -90,-180 90,180 90,180 -90,-180 -90))"^^gsp:wktLiteral 
-    ] ;
+            gsp:asWKT "POLYGON((-180 -90,-180 90,180 90,180 -90,-180 -90))"^^gsp:wktLiteral 
+        ] 
+    ];
     dct:title "Global Forest Change"@en ;
     dcat:contactPoint :globalForestChangeAuthor ;
     dcat:keyword "deforestation"@en,
@@ -98,46 +104,107 @@
     dcat:landingPage <https://glad.earthengine.app/view/global-forest-change#dl=1%3Bold=off%3Bbl=off%3Blon=20%3Blat=10%3Bzoom=3%3B> ;
     dcat:spatialResolutionInMeters 30.0 ;
     dcat:temporalResolution "annual"^^xsd:duration ;
-    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
-            dct:temporal "2000-2012" ;
-            dqv:isMeasurementOf gkq:UsersAccuracy ;
-            dqv:value "87.0"^^xsd:double ;
-            profile:thematic "Forest Loss" ],
+    dqv:hasQualityMeasurement
+        # GLOBAL FOREST GAIN error matrix (user's and producer's accuracy values) from 2000 to 2012 
         [ a dqv:QualityMeasurement ;
-            dct:temporal "2000-2012" ;
+            dct:temporal :periodFrom2000to2012 ;
             dqv:isMeasurementOf gkq:UsersAccuracy ;
             dqv:value "76.4"^^xsd:double ;
-            profile:thematic "Forest Gain" ],
+            profile:thematic :forestGain ],
         [ a dqv:QualityMeasurement ;
-            dct:temporal "2000-2012" ;
-            dqv:isMeasurementOf gkq:ProducersAccuracy ;
-            dqv:value "99.8"^^xsd:double ;
-            profile:thematic "Forest No Loss" ],
-        [ a dqv:QualityMeasurement ;
-            dct:temporal "2000-2012" ;
+            dct:temporal :periodFrom2000to2012 ;
             dqv:isMeasurementOf gkq:ProducersAccuracy ;
             dqv:value "73.9"^^xsd:double ;
-            profile:thematic "Forest Gain" ],
+            profile:thematic :forestGain ],
         [ a dqv:QualityMeasurement ;
-            dct:temporal "2000-2012" ;
+            dct:temporal :periodFrom2000to2012 ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "99.9"^^xsd:double ;
+            profile:thematic :forestNoGain ] ,
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "99.9"^^xsd:double ;
+            profile:thematic :forestNoGain ],        
+        
+        # GLOBAL FOREST LOSS error matrix (user's and producer's accuracy values) from 2000 to 2012 
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "87.0"^^xsd:double ;
+            profile:thematic :forestLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
             dqv:isMeasurementOf gkq:ProducersAccuracy ;
             dqv:value "87.8"^^xsd:double ;
-            profile:thematic "Forest Loss" ],
+            profile:thematic :forestLoss ],
         [ a dqv:QualityMeasurement ;
-            dct:temporal "2000-2012" ;
-            dqv:isMeasurementOf gkq:ProducersAccuracy ;
-            dqv:value "99.9"^^xsd:double ;
-            profile:thematic "Forest No Gain" ],
-        [ a dqv:QualityMeasurement ;
-            dct:temporal "2000-2012" ;
+            dct:temporal :periodFrom2000to2012 ;
             dqv:isMeasurementOf gkq:UsersAccuracy ;
             dqv:value "99.8"^^xsd:double ;
-            profile:thematic "Forest No Loss" ],
+            profile:thematic :forestNoLoss ],
         [ a dqv:QualityMeasurement ;
-            dct:temporal "2000-2012" ;
+            dct:temporal :periodFrom2000to2012 ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "99.8"^^xsd:double ;
+            profile:thematic :forestNoLoss ],
+
+        # TROPICAL FOREST GAIN error matrix (user's and producer's accuracy values) from 2000 to 2012 
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial :tropes ;
             dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "81.9"^^xsd:double ;
+            profile:thematic :forestGain ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial :tropes ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "48.0"^^xsd:double ;
+            profile:thematic :forestGain ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial :tropes ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "99.8"^^xsd:double ;
+            profile:thematic :forestNoGain ] ,
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial :tropes ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
             dqv:value "99.9"^^xsd:double ;
-            profile:thematic "Forest No Gain" ] ;
+            profile:thematic :forestNoGain ],        
+        
+        # TROPICAL FOREST LOSS error matrix (user's and producer's accuracy values) from 2000 to 2012 
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial :tropes ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "87.0"^^xsd:double ;
+            profile:thematic :forestLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial :tropes ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "83.1"^^xsd:double ;
+            profile:thematic :forestLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial :tropes ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "99.7"^^xsd:double ;
+            profile:thematic :forestNoLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial :tropes ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "99.8"^^xsd:double ;
+            profile:thematic :forestNoLoss ];
+
+
+
+            
+
     prov:wasAttributedTo :globalForestChangeAuthor ;
     foaf:page <https://www.science.org/doi/10.1126/science.1244693> .
 
