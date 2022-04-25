@@ -146,25 +146,25 @@
         # TROPICAL FOREST GAIN error matrix (user's and producer's accuracy values) from 2000 to 2012 
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
-            dct:spatial :tropes ;
+            dct:spatial fao:globalEcologicalZones2010Tropical ;
             dqv:isMeasurementOf gkq:UsersAccuracy ;
             dqv:value "81.9"^^xsd:double ;
             profile:thematic :forestGain ],
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
-            dct:spatial :tropes ;
+            dct:spatial fao:globalEcologicalZones2010Tropical ;
             dqv:isMeasurementOf gkq:ProducersAccuracy ;
             dqv:value "48.0"^^xsd:double ;
             profile:thematic :forestGain ],
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
-            dct:spatial :tropes ;
+            dct:spatial fao:globalEcologicalZones2010Tropical ;
             dqv:isMeasurementOf gkq:UsersAccuracy ;
             dqv:value "99.8"^^xsd:double ;
             profile:thematic :forestNoGain ] ,
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
-            dct:spatial :tropes ;
+            dct:spatial fao:globalEcologicalZones2010Tropical ;
             dqv:isMeasurementOf gkq:ProducersAccuracy ;
             dqv:value "99.9"^^xsd:double ;
             profile:thematic :forestNoGain ],        
@@ -172,29 +172,186 @@
         # TROPICAL FOREST LOSS error matrix (user's and producer's accuracy values) from 2000 to 2012 
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
-            dct:spatial :tropes ;
+            dct:spatial fao:globalEcologicalZones2010Tropical ;
             dqv:isMeasurementOf gkq:UsersAccuracy ;
             dqv:value "87.0"^^xsd:double ;
             profile:thematic :forestLoss ],
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
-            dct:spatial :tropes ;
+            dct:spatial fao:globalEcologicalZones2010Tropical ;
             dqv:isMeasurementOf gkq:ProducersAccuracy ;
             dqv:value "83.1"^^xsd:double ;
             profile:thematic :forestLoss ],
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
-            dct:spatial :tropes ;
+            dct:spatial fao:globalEcologicalZones2010Tropical ;
             dqv:isMeasurementOf gkq:UsersAccuracy ;
             dqv:value "99.7"^^xsd:double ;
             profile:thematic :forestNoLoss ],
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
-            dct:spatial :tropes ;
+            dct:spatial fao:globalEcologicalZones2010Tropical ;
             dqv:isMeasurementOf gkq:ProducersAccuracy ;
             dqv:value "99.8"^^xsd:double ;
-            profile:thematic :forestNoLoss ];
+            profile:thematic :forestNoLoss ],
 
+
+    # SUBTROPICAL FOREST GAIN error matrix (user's and producer's accuracy values) from 2000 to 2012 
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Subtropical ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "85.5"^^xsd:double ;
+            profile:thematic :forestGain ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Subtropical ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "82.4"^^xsd:double ;
+            profile:thematic :forestGain ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Subtropical ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "99.8"^^xsd:double ;
+            profile:thematic :forestNoGain ] ,
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Subtropical ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "99.9"^^xsd:double ;
+            profile:thematic :forestNoGain ],        
+        
+        # SUBTROPICAL FOREST LOSS error matrix (user's and producer's accuracy values) from 2000 to 2012 
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Subtropical ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "79.3"^^xsd:double ;
+            profile:thematic :forestLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Subtropical ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "79.4"^^xsd:double ;
+            profile:thematic :forestLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Subtropical ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "99.8"^^xsd:double ;
+            profile:thematic :forestNoLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Subtropical ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "99.8"^^xsd:double ;
+            profile:thematic :forestNoLoss ],
+
+
+    # TEMPERATE FOREST GAIN error matrix (user's and producer's accuracy values) from 2000 to 2012 
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Temperate ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "62.0"^^xsd:double ;
+            profile:thematic :forestGain ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Temperate ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "76.5"^^xsd:double ;
+            profile:thematic :forestGain ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Temperate ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "99.9"^^xsd:double ;
+            profile:thematic :forestNoGain ] ,
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Temperate ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "99.8"^^xsd:double ;
+            profile:thematic :forestNoGain ],        
+        
+        # TEMPERATE FOREST LOSS error matrix (user's and producer's accuracy values) from 2000 to 2012 
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Temperate ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "88.2"^^xsd:double ;
+            profile:thematic :forestLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Temperate ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "93.9"^^xsd:double ;
+            profile:thematic :forestLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Temperate ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "99.9"^^xsd:double ;
+            profile:thematic :forestNoLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Temperate ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "99.9"^^xsd:double ;
+            profile:thematic :forestNoLoss ],
+
+        # BOREAL FOREST GAIN error matrix (user's and producer's accuracy values) from 2000 to 2012 
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Boreal ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "76.7"^^xsd:double ;
+            profile:thematic :forestGain ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Boreal ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "98.4"^^xsd:double ;
+            profile:thematic :forestGain ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Boreal ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "99.9"^^xsd:double ;
+            profile:thematic :forestNoGain ] ,
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Boreal ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "99.7"^^xsd:double ;
+            profile:thematic :forestNoGain ],        
+        
+        # BOREAL FOREST LOSS error matrix (user's and producer's accuracy values) from 2000 to 2012 
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Boreal ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "88.0"^^xsd:double ;
+            profile:thematic :forestLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Boreal ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "93.9"^^xsd:double ;
+            profile:thematic :forestLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Boreal ;
+            dqv:isMeasurementOf gkq:UsersAccuracy ;
+            dqv:value "99.8"^^xsd:double ;
+            profile:thematic :forestNoLoss ],
+        [ a dqv:QualityMeasurement ;
+            dct:temporal :periodFrom2000to2012 ;
+            dct:spatial fao:globalEcologicalZones2010Boreal ;
+            dqv:isMeasurementOf gkq:ProducersAccuracy ;
+            dqv:value "99.5"^^xsd:double ;
+            profile:thematic :forestNoLoss ];
 
             
 

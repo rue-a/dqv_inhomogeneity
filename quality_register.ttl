@@ -150,7 +150,7 @@ gkq:completenessCommission
 
 gkq:thematicClassificationCorrectness
         a                dqv:Dimension ;
-        skos:definition  "Compargkqn of the classes assigned to features or their attributes to a universe of discourse"@en ;
+        skos:definition  "Comparison of the classes assigned to features or their attributes to a universe of discourse"@en ;
         skos:exactMatch  iso:thematicClassificationCorrectness ;
         skos:prefLabel   "Thematic Classification Correctness"@en ;
         dqv:inCategory   gkq:thematicAccuracy .
@@ -610,11 +610,18 @@ gkq:QuantitativeAttributeAccuracyasMeanAbsoluteErrorMAE
         dqv:expectedDataType  xsd:double ;
         dqv:inDimension       gkq:quantitativeAttributeAccuracy .
 
-gkq:UA  a                     dqv:Metric ;
+gkq:qualityRegister  skos:definition  "Container of all quality categories that are available in GeoKur" ;
+        skos:prefLabel   "GeoKur Quality Register"@en .
+
+gkq:UsersAccuracy  a          dqv:Metric ;
         skos:definition       "The user's accuracy looks at an error matrix from the perspective of the end user of a land cover product. In essence, the user's accuracy calculates for a given class, how many pixels are actually what the classification claims they are. In statistical terms, the user's accuracy measures errors of commission (assigning pixels to an incorrect category). It is calculated as the number of pixels correctly identified as being in a given class divided by the total number of pixels assigned to that class. (<https://www2.geog.soton.ac.uk/users/trevesr/obs/rseo/accuracy_assessment__error_matrices.html>; 25.01.2022)" ;
-        skos:prefLabel        "User Accuracy" ;
+        skos:prefLabel        "User's Accuracy" ;
         dqv:expectedDataType  xsd:double ;
         dqv:inDimension       gkq:thematicClassificationCorrectness .
 
-gkq:qualityRegister  skos:definition  "Container of all quality categories that are available in GeoKur" ;
-        skos:prefLabel   "GeoKur Quality Register"@en .
+gkq:ProducersAccuracy
+        a                     dqv:Metric ;
+        skos:definition       "Producer's accuracy looks at accuracy from the perspective of the creator of a land cover data set. It corresponds to the statistical concept of errors of omission - in other words, inadvertent exclusion from a given category.  Producer's accuracy indicates for a given class the proportion of the reference data that are classified correctly.  It is calculated as the number of pixels in a given class divided by the number of pixels in the reference data in that class.  Assuming that an error matrix is organised with the reference data in columns, producer's accuracy is therefore calculated by looking at column totals (<https://www2.geog.soton.ac.uk/users/trevesr/obs/rseo/accuracy_assessment__error_matrices.html>; 25.01.2022)" ;
+        skos:prefLabel        "Producer's Accuracy" ;
+        dqv:expectedDataType  xsd:double ;
+        dqv:inDimension       gkq:thematicClassificationCorrectness .
