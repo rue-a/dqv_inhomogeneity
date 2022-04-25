@@ -1,5 +1,5 @@
 # %%
-from rdflib.namespace import Namespace, RDF, XSD, SKOS, RDFS
+from rdflib.namespace import Namespace, RDF, XSD, RDFS
 from rdflib import Graph, Literal, RDF, URIRef, BNode
 import rdflib
 import geopandas
@@ -52,7 +52,8 @@ GSP = Namespace('http://www.opengis.net/ont/geosparql#')
 PROFILE = Namespace('https://ex.org/profile/#')
 EX = Namespace('https://ex.org/#')
 FAO = Namespace('https://www.fao.org/home/en/#')
-FAO_GEOMS = Namespace()
+SKOS = Namespace('http://www.w3.org/2004/02/skos/core#')
+FAO_GEOMS = Namespace('https://github.com/rue-a/dqv_inhomogeneity/blob/master/gaez_2010_geometries/')
 
 namespaces = {
     'dct': DCT,
@@ -61,13 +62,31 @@ namespaces = {
     'profile': PROFILE,
     ':': EX,
     'fao': FAO,
+    'gaez2010_geoms': FAO_GEOMS,
     'skos': SKOS
+}
+
+namespaces_geoms = {
+    'gsp': GSP,
+    'gaez2010_geoms': FAO_GEOMS,
 }
 
 
 g = Graph()
+
 for prefix, namespace in namespaces.items():
     g.bind(prefix, namespace)
+polar_g = Graph()
+boreal_g = Graph()
+temperate_g = Graph()
+subtropical_g = Graph()
+tropical_g = Graph()
+water_g = Graph()
+geom_graphs = [polar_g, boreal_g, temperate_g, subtropical_g, tropical_g, water_g]
+for graph in geom_graphs:
+    for prefix, namespace in namespaces_geoms.items():
+        graph.bind(prefix, namespace)
+
 
 g.add((FAO.globalEcologicalZones, RDF.type, SKOS.Concept))
 g.add((FAO.globalEcologicalZones, SKOS.prefLabel, Literal('Global Ecological Zones')))
@@ -84,9 +103,9 @@ g.add((FAO.globalEcologicalZones2010Tropical, SKOS.definition, Literal('All mont
 g.add((FAO.globalEcologicalZones2010Tropical, SKOS.narrower, FAO.globalEcologicalZones2010))
 g.add((FAO.globalEcologicalZones2010Tropical, RDF.type, DCT.Location))
 g.add((FAO.globalEcologicalZones2010Tropical, RDF.type, GSP.Feature))
-tropical_geom = BNode()
-g.add((FAO.globalEcologicalZones2010Tropical, GSP.hasDefaultGeometry, tropical_geom))
-g.add((tropical_geom, GSP.asWKT, Literal(tropical_polygon.simplify(1).wkt)))
+g.add((FAO.globalEcologicalZones2010Tropical, GSP.hasDefaultGeometry, FAO_GEOMS.tropical))
+tropical_g.add((FAO_GEOMS.tropical, RDF.type, GSP.Geometry))
+tropical_g.add((FAO_GEOMS.tropical, GSP.asWKT, Literal(tropical_polygon.simplify(1).wkt, datatype=GSP.wktLiteral)))
 
 g.add((FAO.globalEcologicalZones2010Subtropical, RDF.type, SKOS.Concept))
 g.add((FAO.globalEcologicalZones2010Subtropical, SKOS.prefLabel, Literal('Subtropical Ecological Zones 2010')))
@@ -94,9 +113,9 @@ g.add((FAO.globalEcologicalZones2010Subtropical, SKOS.definition, Literal('Eight
 g.add((FAO.globalEcologicalZones2010Subtropical, SKOS.narrower, FAO.globalEcologicalZones2010))
 g.add((FAO.globalEcologicalZones2010Subtropical, RDF.type, DCT.Location))
 g.add((FAO.globalEcologicalZones2010Subtropical, RDF.type, GSP.Feature))
-subtropical_geom = BNode()
-g.add((FAO.globalEcologicalZones2010Subtropical, GSP.hasDefaultGeometry, subtropical_geom))
-g.add((subtropical_geom, GSP.asWKT, Literal(subtropical_polygon.simplify(1).wkt)))
+g.add((FAO.globalEcologicalZones2010Subtropical, GSP.hasDefaultGeometry, FAO_GEOMS.subtropical))
+subtropical_g.add((FAO_GEOMS.subtropical, RDF.type, GSP.Geometry))
+subtropical_g.add((FAO_GEOMS.subtropical, GSP.asWKT, Literal(subtropical_polygon.simplify(1).wkt, datatype=GSP.wktLiteral)))
 
 g.add((FAO.globalEcologicalZones2010Temperate, RDF.type, SKOS.Concept))
 g.add((FAO.globalEcologicalZones2010Temperate, SKOS.prefLabel, Literal('Temperate Ecological Zones 2010')))
@@ -104,9 +123,9 @@ g.add((FAO.globalEcologicalZones2010Temperate, SKOS.definition, Literal('Four to
 g.add((FAO.globalEcologicalZones2010Temperate, SKOS.narrower, FAO.globalEcologicalZones2010))
 g.add((FAO.globalEcologicalZones2010Temperate, RDF.type, DCT.Location))
 g.add((FAO.globalEcologicalZones2010Temperate, RDF.type, GSP.Feature))
-temperate_geom = BNode()
-g.add((FAO.globalEcologicalZones2010Temperate, GSP.hasDefaultGeometry, temperate_geom))
-g.add((temperate_geom, GSP.asWKT, Literal(temperate_polygon.simplify(1).wkt)))
+g.add((FAO.globalEcologicalZones2010Temperate, GSP.hasDefaultGeometry, FAO_GEOMS.temperate))
+temperate_g.add((FAO_GEOMS.temperate, RDF.type, GSP.Geometry))
+temperate_g.add((FAO_GEOMS.temperate, GSP.asWKT, Literal(temperate_polygon.simplify(1).wkt, datatype=GSP.wktLiteral)))
 
 g.add((FAO.globalEcologicalZones2010Boreal, RDF.type, SKOS.Concept))
 g.add((FAO.globalEcologicalZones2010Boreal, SKOS.prefLabel, Literal('Boreal Ecological Zones 2010')))
@@ -114,9 +133,9 @@ g.add((FAO.globalEcologicalZones2010Boreal, SKOS.definition, Literal('Up to 3 mo
 g.add((FAO.globalEcologicalZones2010Boreal, SKOS.narrower, FAO.globalEcologicalZones2010))
 g.add((FAO.globalEcologicalZones2010Boreal, RDF.type, DCT.Location))
 g.add((FAO.globalEcologicalZones2010Boreal, RDF.type, GSP.Feature))
-boreal_geom = BNode()
-g.add((FAO.globalEcologicalZones2010Boreal, GSP.hasDefaultGeometry, boreal_geom))
-g.add((boreal_geom, GSP.asWKT, Literal(boreal_polygon.simplify(1).wkt)))
+g.add((FAO.globalEcologicalZones2010Boreal, GSP.hasDefaultGeometry, FAO_GEOMS.boreal))
+boreal_g.add((FAO_GEOMS.boreal, RDF.type, GSP.Geometry))
+boreal_g.add((FAO_GEOMS.boreal, GSP.asWKT, Literal(boreal_polygon.simplify(1).wkt, datatype=GSP.wktLiteral)))
 
 g.add((FAO.globalEcologicalZones2010Polar, RDF.type, SKOS.Concept))
 g.add((FAO.globalEcologicalZones2010Polar, SKOS.prefLabel, Literal('Polar Ecological Zones 2010')))
@@ -124,17 +143,23 @@ g.add((FAO.globalEcologicalZones2010Polar, SKOS.definition, Literal('All months 
 g.add((FAO.globalEcologicalZones2010Polar, SKOS.narrower, FAO.globalEcologicalZones2010))
 g.add((FAO.globalEcologicalZones2010TPolar, RDF.type, DCT.Location))
 g.add((FAO.globalEcologicalZones2010TPolar, RDF.type, GSP.Feature))
-polar_geom = BNode()
-g.add((FAO.globalEcologicalZones2010TPolar, GSP.hasDefaultGeometry, polar_geom))
-g.add((polar_geom, GSP.asWKT, Literal(polar_polygon.simplify(1).wkt)))
+g.add((FAO.globalEcologicalZones2010TPolar, GSP.hasDefaultGeometry, FAO_GEOMS.polar))
+polar_g.add((FAO_GEOMS.polar, RDF.type, GSP.Geometry))
+polar_g.add((FAO_GEOMS.polar, GSP.asWKT, Literal(polar_polygon.simplify(1).wkt, datatype=GSP.wktLiteral)))
 
 g.add((FAO.globalEcologicalZones2010Water, RDF.type, SKOS.Concept))
 g.add((FAO.globalEcologicalZones2010Water, SKOS.prefLabel, Literal('Global Ecological Zones 2010 - Water')))
 g.add((FAO.globalEcologicalZones2010Water, SKOS.narrower, FAO.globalEcologicalZones2010))
 g.add((FAO.globalEcologicalZones2010Water, RDF.type, DCT.Location))
 g.add((FAO.globalEcologicalZones2010Water, RDF.type, GSP.Feature))
-water_geom = BNode()
-g.add((FAO.globalEcologicalZones2010Water, GSP.hasDefaultGeometry, water_geom))
-g.add((water_geom, GSP.asWKT, Literal(water_polygon.simplify(1).wkt)))
+g.add((FAO.globalEcologicalZones2010Water, GSP.hasDefaultGeometry, FAO_GEOMS.water))
+water_g.add((FAO_GEOMS.water, RDF.type, GSP.Geometry))
+water_g.add((FAO_GEOMS.water, GSP.asWKT, Literal(water_polygon.simplify(1).wkt, datatype=GSP.wktLiteral)))
 
 g.serialize('globalEcologicalZones.ttl', format='ttl')
+tropical_g.serialize('gaez_2010_geometries/tropical.ttl', format='ttl')
+subtropical_g.serialize('gaez_2010_geometries/subtropical.ttl', format='ttl')
+temperate_g.serialize('gaez_2010_geometries/temperate.ttl', format='ttl')
+boreal_g.serialize('gaez_2010_geometries/boreal.ttl', format='ttl')
+polar_g.serialize('gaez_2010_geometries/polar.ttl', format='ttl')
+water_g.serialize('gaez_2010_geometries/water.ttl', format='ttl')
