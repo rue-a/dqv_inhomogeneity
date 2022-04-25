@@ -99,50 +99,7 @@
     dcat:spatialResolutionInMeters 30.0 ;
     dcat:temporalResolution "annual"^^xsd:duration ;
     dqv:hasQualityMeasurement
-        # GLOBAL FOREST GAIN error matrix (user's and producer's accuracy values) from 2000 to 2012 
-        [ a dqv:QualityMeasurement ;
-            dct:temporal :periodFrom2000to2012 ;
-            dqv:isMeasurementOf gkq:UsersAccuracy ;
-            dqv:value "76.4"^^xsd:double ;
-            profile:thematic :forestGain ],
-        [ a dqv:QualityMeasurement ;
-            dct:temporal :periodFrom2000to2012 ;
-            dqv:isMeasurementOf gkq:ProducersAccuracy ;
-            dqv:value "73.9"^^xsd:double ;
-            profile:thematic :forestGain ],
-        [ a dqv:QualityMeasurement ;
-            dct:temporal :periodFrom2000to2012 ;
-            dqv:isMeasurementOf gkq:UsersAccuracy ;
-            dqv:value "99.9"^^xsd:double ;
-            profile:thematic :forestNoGain ] ,
-        [ a dqv:QualityMeasurement ;
-            dct:temporal :periodFrom2000to2012 ;
-            dqv:isMeasurementOf gkq:ProducersAccuracy ;
-            dqv:value "99.9"^^xsd:double ;
-            profile:thematic :forestNoGain ],        
         
-        # GLOBAL FOREST LOSS error matrix (user's and producer's accuracy values) from 2000 to 2012 
-        [ a dqv:QualityMeasurement ;
-            dct:temporal :periodFrom2000to2012 ;
-            dqv:isMeasurementOf gkq:UsersAccuracy ;
-            dqv:value "87.0"^^xsd:double ;
-            profile:thematic :forestLoss ],
-        [ a dqv:QualityMeasurement ;
-            dct:temporal :periodFrom2000to2012 ;
-            dqv:isMeasurementOf gkq:ProducersAccuracy ;
-            dqv:value "87.8"^^xsd:double ;
-            profile:thematic :forestLoss ],
-        [ a dqv:QualityMeasurement ;
-            dct:temporal :periodFrom2000to2012 ;
-            dqv:isMeasurementOf gkq:UsersAccuracy ;
-            dqv:value "99.8"^^xsd:double ;
-            profile:thematic :forestNoLoss ],
-        [ a dqv:QualityMeasurement ;
-            dct:temporal :periodFrom2000to2012 ;
-            dqv:isMeasurementOf gkq:ProducersAccuracy ;
-            dqv:value "99.8"^^xsd:double ;
-            profile:thematic :forestNoLoss ],
-
         # TROPICAL FOREST GAIN error matrix (user's and producer's accuracy values) from 2000 to 2012 
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
