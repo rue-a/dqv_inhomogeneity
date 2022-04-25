@@ -1,0 +1,620 @@
+@prefix iso:   <https://www.iso.org/standard/32575.html/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dqv:   <http://www.w3.org/ns/dqv#> .
+@prefix xsd:   <https://www.w3.org/TR/xmlschema-2/#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gkq:   <https://geokur-dmp.geo.tu-dresden.de/quality-register#> .
+
+dqv:inCategory  skos:prefLabel  "in category" .
+
+dqv:inDimension  skos:prefLabel  "in dimension" .
+
+gkq:positionalAccuracy
+        a                dqv:Category ;
+        skos:definition  "Accuracy of the position of features"@en ;
+        skos:exactMatch  iso:positionalAccuracy ;
+        skos:prefLabel   "Positional Accuracy"@en ;
+        gkq:inRegister   gkq:qualityRegister .
+
+gkq:temporalQuality  a   dqv:Category ;
+        skos:definition  "Accuracy of the temporal attributes and temporal relationships of features"@en ;
+        skos:exactMatch  iso:temporalQuality ;
+        skos:prefLabel   "Temporal Quality"@en ;
+        gkq:inRegister   gkq:qualityRegister .
+
+gkq:metaquality  a       dqv:Category ;
+        skos:definition  "Information about the reliability of data quality results"@en ;
+        skos:exactMatch  iso:metaquality ;
+        skos:prefLabel   "Metaquality"@en ;
+        gkq:inRegister   gkq:qualityRegister .
+
+gkq:logicalConsistency
+        a                dqv:Category ;
+        skos:definition  "Degree of adherence to logical rules of data structure, attribution and relationships"@en ;
+        skos:exactMatch  iso:logicalConsistency ;
+        skos:prefLabel   "Logical Consistency"@en ;
+        gkq:inRegister   gkq:qualityRegister .
+
+gkq:completeness  a      dqv:Category ;
+        skos:definition  "Presence and absence of features, their attributes and their relationships"@en ;
+        skos:exactMatch  iso:completeness ;
+        skos:prefLabel   "Completeness"@en ;
+        gkq:inRegister   gkq:qualityRegister .
+
+gkq:thematicAccuracy  a  dqv:Category ;
+        skos:definition  "Accuracy of quantitative attributes and the correctness of non-quantitative attributes and of the classifications of features and their relationships"@en ;
+        skos:exactMatch  iso:thematicAccuracy ;
+        skos:prefLabel   "Thematic Accuracy"@en ;
+        gkq:inRegister   gkq:qualityRegister .
+
+gkq:usabilityElement  a  dqv:Category ;
+        skos:definition  "Degree of adherence of a data set to a specific set of requirements"@en ;
+        skos:exactMatch  iso:usabilityElement ;
+        skos:prefLabel   "Usability Element"@en ;
+        gkq:inRegister   gkq:qualityRegister .
+
+gkq:absoluteExternalPositionalAccuracy
+        a                dqv:Dimension ;
+        skos:definition  "Closeness of reported coordinate values to values accepted as or being true"@en ;
+        skos:exactMatch  iso:absoluteExternalPositionalAccuracy ;
+        skos:prefLabel   "Absolute External Positional Accuracy"@en ;
+        dqv:inCategory   gkq:positionalAccuracy .
+
+gkq:relativeInternalPositionalAccuracy
+        a                dqv:Dimension ;
+        skos:definition  "Evaluation of random errors in the relative position of one feature to another in the same dataset"@en ;
+        skos:exactMatch  iso:relativeInternalPositionalAccuracy ;
+        skos:prefLabel   "Relative Internal Positional Accuracy"@en ;
+        dqv:inCategory   gkq:positionalAccuracy .
+
+gkq:griddedDataPositionalAccuracy
+        a                dqv:Dimension ;
+        skos:definition  "Closeness of gridded data position values to values accepted as or being true"@en ;
+        skos:exactMatch  iso:griddedDataPositionalAccuracy ;
+        skos:prefLabel   "Gridded Data Positional Accuracy"@en ;
+        dqv:inCategory   gkq:positionalAccuracy .
+
+gkq:accuracyOfATimeMeasurement
+        a                dqv:Dimension ;
+        skos:definition  "Correctness of the temporal references of an item (reporting of error in time measurement)"@en ;
+        skos:exactMatch  iso:accuracyOfATimeMeasurement ;
+        skos:prefLabel   "Accuracy of a Time Measurement"@en ;
+        dqv:inCategory   gkq:temporalQuality .
+
+gkq:temporalConsistency
+        a                dqv:Dimension ;
+        skos:definition  "Correctness of ordered events or sequences, if reported"@en ;
+        skos:exactMatch  iso:temporalConsistency ;
+        skos:prefLabel   "Temporal Consistency"@en ;
+        dqv:inCategory   gkq:temporalQuality .
+
+gkq:temporalValidity  a  dqv:Dimension ;
+        skos:definition  "Validity of data specified by the scope with respect to time"@en ;
+        skos:exactMatch  iso:temporalValidity ;
+        skos:prefLabel   "Temporal Validity"@en ;
+        dqv:inCategory   gkq:temporalQuality .
+
+gkq:confidence  a        dqv:Dimension ;
+        skos:definition  "Trustworthiness of a data quality result"@en ;
+        skos:exactMatch  iso:confidence ;
+        skos:prefLabel   "Confidence"@en ;
+        dqv:inCategory   gkq:metaquality .
+
+gkq:representativity  a  dqv:Dimension ;
+        skos:definition  "Degree to which the sample used has produced a result which is representative of the data within the data quality scope"@en ;
+        skos:exactMatch  iso:representativity ;
+        skos:prefLabel   "Representativity"@en ;
+        dqv:inCategory   gkq:metaquality .
+
+gkq:homogeneity  a       dqv:Dimension ;
+        skos:definition  "Expected or tested uniformity of the results obtained for a data quality evaluation"@en ;
+        skos:exactMatch  iso:homogeneity ;
+        skos:prefLabel   "Homogeneity"@en ;
+        dqv:inCategory   gkq:metaquality .
+
+gkq:conceptualConsistency
+        a                dqv:Dimension ;
+        skos:definition  "Adherence to rules of the conceptual schema"@en ;
+        skos:exactMatch  iso:conceptualConsistency ;
+        skos:prefLabel   "Conceptual Consistency"@en ;
+        dqv:inCategory   gkq:logicalConsistency .
+
+gkq:domainConsistency
+        a                dqv:Dimension ;
+        skos:definition  "Adherence of values to the value domains"@en ;
+        skos:exactMatch  iso:domainConsistency ;
+        skos:prefLabel   "Domain Consistency"@en ;
+        dqv:inCategory   gkq:logicalConsistency .
+
+gkq:formatConsistency
+        a                dqv:Dimension ;
+        skos:definition  "Degree to which data are stored in accordance with the physical structure of the data set, as described by the scope"@en ;
+        skos:exactMatch  iso:formatConsistency ;
+        skos:prefLabel   "Format Consistency"@en ;
+        dqv:inCategory   gkq:logicalConsistency .
+
+gkq:topologicalConsistency
+        a                dqv:Dimension ;
+        skos:definition  "Correctness of the explicitly encoded topological characteristics of the data set as described by the scope"@en ;
+        skos:exactMatch  iso:topologicalConsistency ;
+        skos:prefLabel   "Topological Consistency"@en ;
+        dqv:inCategory   gkq:logicalConsistency .
+
+gkq:completenessCommission
+        a                dqv:Dimension ;
+        skos:definition  "Excess data present in the data set, as described by the scope"@en ;
+        skos:exactMatch  iso:completenessCommission ;
+        skos:prefLabel   "Commission"@en ;
+        dqv:inCategory   gkq:completeness .
+
+gkq:thematicClassificationCorrectness
+        a                dqv:Dimension ;
+        skos:definition  "Compargkqn of the classes assigned to features or their attributes to a universe of discourse"@en ;
+        skos:exactMatch  iso:thematicClassificationCorrectness ;
+        skos:prefLabel   "Thematic Classification Correctness"@en ;
+        dqv:inCategory   gkq:thematicAccuracy .
+
+gkq:absoluteExternalPositionalAccuracyAsEuclidianDistance
+        a                     dqv:Metric ;
+        skos:definition       "Mean value of the positional uncertainties for a set of positions where the positional uncertainties are defined as the distance between a measured position and what is considered as the corresponding true position"@en ;
+        skos:prefLabel        "Absolute External Positional Accuracy as Euclidean Distance"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:absoluteExternalPositionalAccuracy .
+
+gkq:absoluteExternalPositionalAccuracyAsBias
+        a                     dqv:Metric ;
+        skos:definition       "Bias of the positions for a set of positions where the positional uncertainties are defined as the deviation between a measured position and what is considered as the corresponding true position"@en ;
+        skos:prefLabel        "Absolute External Positional Accuracy as Bias"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:absoluteExternalPositionalAccuracy .
+
+gkq:relativeInternalPositionalAccuracyAsRelativeHorizontalStandardDeviation
+        a                     dqv:Metric ;
+        skos:definition       "Evaluation of the random errors in the horizontal position of one feature to another in the same data set or on the same map/chart"@en ;
+        skos:prefLabel        "Relative Internal Positional Accuracy as Relative Horizontal Standard Deviation"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:relativeInternalPositionalAccuracy .
+
+gkq:griddedDataPositionalAccuracyAsStandardDeviation
+        a                     dqv:Metric ;
+        skos:definition       "Radius describing a circle, in which the true point location lies with the probability of 39,4 %"@en ;
+        skos:prefLabel        "Gridded Data Positional Accuracy as Standard Deviation"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:griddedDataPositionalAccuracy .
+
+gkq:accuracyOfATimeMeasurementAsTimeAccuracyAt68SignificanceLevel
+        a                     dqv:Metric ;
+        skos:definition       "Half length of the interval defined by an upper and a lower limit, in which the true value for the time instance lies with probability 68,3 %"@en ;
+        skos:prefLabel        "Accuracy of a Time Measurement as Time Accuracy at 68,3% Significance Level"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:accuracyOfATimeMeasurement .
+
+gkq:temporalConsistencyAsValue
+        a                     dqv:Metric ;
+        skos:definition       "Indication that an event is incorrectly ordered against the other events"@en ;
+        skos:prefLabel        "Temporal Consistency as Value"@en ;
+        dqv:expectedDataType  xsd:boolean ;
+        dqv:inDimension       gkq:temporalConsistency .
+
+gkq:temporalValidityAsValueDomain
+        a                     dqv:Metric ;
+        skos:definition       "Count of all items in the data set that are not in conformance with their value domain"@en ;
+        skos:prefLabel        "Temporal Validity as Value Domain"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:temporalValidity .
+
+gkq:confidenceAsStandardDeviation
+        a                     dqv:Metric ;
+        skos:definition       "Radius describing a circle, in which the true point location lies with the probability of 39,4 %"@en ;
+        skos:prefLabel        "Confidence as Standard Deviation"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:confidence .
+
+gkq:homogeneityAsRootMeanSquareError
+        a                     dqv:Metric ;
+        skos:definition       "The true value of an observable Z is known as zt."@en ;
+        skos:prefLabel        "Homogeneity as Root Mean Square Error"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:homogeneity .
+
+gkq:conceptualConsistencyAsValueWithRulesofConceptualSchema
+        a                     dqv:Metric ;
+        skos:definition       "If the conceptual schema explicitly or implicitly describes rules, these rules shall be followed. Violations against such rules can be, for example, invalid placement of features within a defined tolerance, duplication of features and invalid overlap of features."@en ;
+        skos:prefLabel        "Conceptual Consistency as Value with Rules of Conceptual Schema"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:conceptualConsistency .
+
+gkq:domainConsistencyAsValueDomain
+        a                     dqv:Metric ;
+        skos:definition       "Count of all items in the data set that are not in conformance with their value domain"@en ;
+        skos:prefLabel        "Domain Consistency as Value Domain"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:domainConsistency .
+
+gkq:domainConsistencyAsValueDomainNonConformanceRate
+        a                     dqv:Metric ;
+        skos:definition       "Number of items in the data set that are not in conformance with their value domain in relation to the total number of items"@en ;
+        skos:prefLabel        "Domain Consistency as Value Domain Non Conformance Rate"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:domainConsistency .
+
+gkq:formatConsistencyAsValuePhysicalStructureConflictsNumber
+        a                     dqv:Metric ;
+        skos:definition       "Count of all items in the data set that are stored in conflict with the physical structure of the data set"@en ;
+        skos:prefLabel        "Format Consistency as Value Physical Structure Conflicts Number"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:formatConsistency .
+
+gkq:topologicalConsistencyAsNumberOfInvalidSlivers
+        a                     dqv:Metric ;
+        skos:definition       "Count of all items in the data set that are invalid sliver surfaces"@en ;
+        skos:prefLabel        "Topological Consistency as Number of Invalid Slivers"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:topologicalConsistency .
+
+gkq:completenessCommissionAsNumberOfExcessItems
+        a                     dqv:Metric ;
+        skos:definition       "Number of items within the data set or sample that should not have been present"@en ;
+        skos:prefLabel        "Commission as Number of Excess Items"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:completenessCommission .
+
+gkq:completenessCommissionAsRateOfExcessItems
+        a                     dqv:Metric ;
+        skos:definition       "Number of excess items in the data set or sample in relation to the number of items that should have been present"@en ;
+        skos:prefLabel        "Commission as Rate of Excess Items"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:completenessCommission .
+
+gkq:thematicClassificationCorrectnessAsNumberOfIncorrectlyClassifiedFeatures
+        a                     dqv:Metric ;
+        skos:definition       "Number of incorrectly classified features"@en ;
+        skos:prefLabel        "Thematic Classification Correctness as Number of Incorrectly Classified Features"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:thematicClassificationCorrectness .
+
+gkq:thematicClassificationCorrectnessAsKappaCoefficient
+        a                     dqv:Metric ;
+        skos:definition       "Coefficient to quantify the proportion of agreement of assignments to classes by removing misclassifications"@en ;
+        skos:prefLabel        "Thematic Classification Correctness as Kappa Coefficient"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:thematicClassificationCorrectness .
+
+gkq:griddedDataPositionalAccuracyAsCircularErrorProbable
+        a                     dqv:Metric ;
+        skos:definition       "Radius describing a circle, in which the true point location lies with the probability of 50 %"@en ;
+        skos:prefLabel        "Gridded Data Positional Accuracy as Circular Error Probable"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:griddedDataPositionalAccuracy .
+
+gkq:accuracyOfATimeMeasurementAsTimeAccuracyAt99SignificanceLevel
+        a                     dqv:Metric ;
+        skos:definition       "Half length of the interval defined by an upper and a lower limit, in which the true value for the time instance lies with probability 99 %"@en ;
+        skos:prefLabel        "Accuracy of a Time Measurement as Time Accuracy at 99% Significance Level"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:accuracyOfATimeMeasurement .
+
+gkq:temporalValidityAsValueDomainConformance
+        a                     dqv:Metric ;
+        skos:definition       "Indication that an item is conforming to its value domain"@en ;
+        skos:prefLabel        "Temporal Validity as Value Domain Conformance"@en ;
+        dqv:expectedDataType  xsd:boolean ;
+        dqv:inDimension       gkq:temporalValidity .
+
+gkq:confidenceAsConfidenceEllipse
+        a                     dqv:Metric ;
+        skos:definition       "2D ellipse with the two main axes indicating the direction and magnitude of the highest and the lowest uncertainty of a 2D point"@en ;
+        skos:prefLabel        "Confidence as Confidence Ellipse"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:confidence .
+
+gkq:conceptualConsistencyAsNumberOfInvalidOverlapsOfSurfaces
+        a                     dqv:Metric ;
+        skos:definition       "Total number of erroneous overlaps within the data"@en ;
+        skos:prefLabel        "Consecputual Consistency as Number of Invalid Overlaps of Surfaces"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:conceptualConsistency .
+
+gkq:formatConsistencyAsPhysicalStructureConflictRate
+        a                     dqv:Metric ;
+        skos:definition       "Number of items in the data set that are stored in conflict with the physical structure of the data set divided by the total number of items"@en ;
+        skos:prefLabel        "Format Consistency as Physical Structure Conflict Rate"@en ;
+        dqv:expectedDataType  xsd:real ;
+        dqv:inDimension       gkq:formatConsistency .
+
+gkq:topologicalConsistencyAsNumberOfInvalidSelfIntersectErrors
+        a                     dqv:Metric ;
+        skos:definition       "Count of all items in the data that illegally intersect with themselves"@en ;
+        skos:prefLabel        "Topological Consistency as Number of Invalid Self-Intersect Errors"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:topologicalConsistency .
+
+gkq:representativityAsPolygonsPerArea
+        a                     dqv:Metric ;
+        skos:definition       "Number of polygons per 1000 square kilometer. Area size summarized by all polygons, regardless of overlapping"@en ;
+        skos:prefLabel        "Representativity as Polygons per Area"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfDifferentSpatialElements
+        a                     dqv:Metric ;
+        skos:definition       "Number of different geometries at given attribute"@en ;
+        skos:prefLabel        "Representativity as Number of Different Spatial Elements"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfDifferentTemporalElements
+        a                     dqv:Metric ;
+        skos:definition       "Number of different years at given attribute; different years do not necessarily have be consecutive"@en ;
+        skos:prefLabel        "Representativity as Number of Different Temporal Elements"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfDifferentThematicElements
+        a                     dqv:Metric ;
+        skos:definition       "Number of different thematic elements at given attribute; all thematic elements are equally interpreted"@en ;
+        skos:prefLabel        "Representativity as Number of Different Thematic Elements"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfTemporalElementsPerGeographicalUnitMean
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different temporal elements per geographical unit at given attribute - mean"@en ;
+        skos:prefLabel        "Representativity as Number of Temporal Elements per Geographical Unit Mean"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfTemporalElementsPerGeographicalUnitMin
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different temporal elements per geographical unit at given attribute - min"@en ;
+        skos:prefLabel        "Representativity as Number of Temporal Elements per Geographical Unit Min"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfTemporalElementsPerGeographicalUnitQuantile05
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different temporal elements per geographical unit at given attribute - 5 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Temporal Elements per Geographical Unit 5 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfTemporalElementsPerGeographicalUnitQuantile25
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different temporal elements per geographical unit at given attribute - 25 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Temporal Elements per Geographical Unit 25 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfTemporalElementsPerGeographicalUnitQuantile50
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different temporal elements per geographical unit at given attribute - 50 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Temporal Elements per Geographical Unit 50 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfTemporalElementsPerGeographicalUnitQuantile75
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different temporal elements per geographical unit at given attribute - 75 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Temporal Elements per Geographical Unit 75 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfTemporalElementsPerGeographicalUnitQuantile95
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different temporal elements per geographical unit at given attribute - 95 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Temporal Elements per Geographical Unit 95 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfTemporalElementsPerGeographicalUnitMax
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different temporal elements per geographical unit at given attribute - max"@en ;
+        skos:prefLabel        "Representativity as Number of Temporal Elements per Geographical Unit Max"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerGeographicalUnitMean
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per geographical unit at given attribute - mean"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Geographical Unit Mean"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerGeographicalUnitMin
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per geographical unit at given attribute - min"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Geographical Unit Min"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerGeographicalUnitQuantile05
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per geographical unit at given attribute - 5 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Geographical Unit 5 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerGeographicalUnitQuantile25
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per geographical unit at given attribute - 25 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Geographical Unit 25 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerGeographicalUnitQuantile50
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per geographical unit at given attribute - 50 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Geographical Unit 50 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerGeographicalUnitQuantile75
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per geographical unit at given attribute - 75 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Geographical Unit 75 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerGeographicalUnitQuantile95
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per geographical unit at given attribute - 95 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Geographical Unit 95 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerGeographicalUnitMax
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per geographical unit at given attribute - max"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Geographical Unit Max"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerTemporalUnitMean
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per temporal unit at given attribute - mean"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Temporal Unit Mean"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerTemporalUnitMin
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per temporal unit at given attribute - min"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Temporal Unit Min"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerTemporalUnitQuantile05
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per temporal unit at given attribute - 5 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Temporal Unit 5 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerTemporalUnitQuantile25
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per temporal unit at given attribute - 25 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Temporal Unit 25 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerTemporalUnitQuantile50
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per temporal unit at given attribute - 50 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Temporal Unit 50 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerTemporalUnitQuantile75
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per temporal unit at given attribute - 75 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Temporal Unit 75 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerTemporalUnitQuantile95
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per temporal unit at given attribute - 95 % quantile"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Temporal Unit 95 % Quantile"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:representativityAsNumberOfThematicElementsPerTemporalUnitMax
+        a                     dqv:Metric ;
+        skos:definition       "Distribution parameters of different thematic elements per temporal unit at given attribute - max"@en ;
+        skos:prefLabel        "Representativity as Number of Thematic Elements per Temporal Unit Max"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:representativity .
+
+gkq:nonQuantitativeAttributeCorrectness
+        a                dqv:Dimension ;
+        skos:definition  "Correctness of non-quantitative attributes"@en ;
+        skos:exactMatch  iso:nonQuantitativeAttributeCorrectness ;
+        skos:prefLabel   "Non Quantitative Attribute Correctness"@en ;
+        dqv:inCategory   gkq:thematicAccuracy .
+
+gkq:quantitativeAttributeAccuracy
+        a                dqv:Dimension ;
+        skos:definition  "Accuracy of quantitative attributes"@en ;
+        skos:exactMatch  iso:quantitativeAttributeAccuracy ;
+        skos:prefLabel   "Quantitative Attribute Accuracy"@en ;
+        dqv:inCategory   gkq:thematicAccuracy .
+
+gkq:nonQuantitativeAttributeCorrectnessAsNumberOfIncorrectAttributeValues
+        a                     dqv:Metric ;
+        skos:definition       "Total number of erroneous attribute values within the relevant part of the data set"@en ;
+        skos:prefLabel        "Non Quantitative Attribute Correctness as Number of Incorrect Attributes Values"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:nonQuantitativeAttributeCorrectness .
+
+gkq:nonQuantitativeAttributeCorrectnessAsRateOfIncorrectAttributeValues
+        a                     dqv:Metric ;
+        skos:definition       "Number of attribute values where incorrect values are assigned in relation to the total number of attribute values"@en ;
+        skos:prefLabel        "Non Quantitive Attribute Correctness as Rate of Incorrect Attribute Values"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:nonQuantitativeAttributeCorrectness .
+
+gkq:quantitativeAttributeAccuracyAsAttributeValueUncertainityAt68SignificanceLevel
+        a                     dqv:Metric ;
+        skos:definition       "Half length of the interval defined by an upper and a lower limit, in which the true value for the quantitative attribute lies with probability 68,3 %"@en ;
+        skos:prefLabel        "Quantitative Attribute Accuracy as Attribute Value Uncertainity at 68,3% Significance Level"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:quantitativeAttributeAccuracy .
+
+gkq:quantitativeAttributeAccuracyAsAttributeValueUncertainityAt99SignificanceLevel
+        a                     dqv:Metric ;
+        skos:definition       "Half length of the interval defined by an upper and a lower limit, in which the true value for the quantitative attribute lies with probability 99 %"@en ;
+        skos:prefLabel        "Quantitative Attribute Accuracy as Attribute Value Uncertainity at 99% Significance Level"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:quantitativeAttributeAccuracy .
+
+gkq:completenessOmission
+        a                dqv:Dimension ;
+        skos:definition  "Data absent from the data set, as described by the scope"@en ;
+        skos:exactMatch  iso:completenessOmission ;
+        skos:prefLabel   "Omission"@en ;
+        dqv:inCategory   gkq:completeness .
+
+gkq:completenessOmissionAsNumberOfMissingItems
+        a                     dqv:Metric ;
+        skos:definition       "Count of all items that should have been in the data set or sample and are missing"@en ;
+        skos:prefLabel        "Omission as Number of Missing Items"@en ;
+        dqv:expectedDataType  xsd:integer ;
+        dqv:inDimension       gkq:completenessOmission .
+
+gkq:completenessOmissionAsRateOfMissingItems
+        a                     dqv:Metric ;
+        skos:definition       "Number of missing items in the data set or sample in relation to the number of items that should have been present"@en ;
+        skos:prefLabel        "Omission as Rate of Missing Items"@en ;
+        dqv:expectedDataType  xsd:decimal ;
+        dqv:inDimension       gkq:completenessOmission .
+
+gkq:QuantitativeAttributeAccuracyasCoefficientofDetermination
+        a                     dqv:Metric ;
+        skos:definition       "The root mean square error (RMSE) quantifies the average dispersion of a set of observations from a known value. The smaller an RMSE value, the closer predicted and observed values are. Source: Meyer, Thomas (2012): Root Mean Square Error Compared to, and Contrasted with, Standard Deviation. In: Surveying and Land Information Science 72 (3), S. 107–108." ;
+        skos:prefLabel        "Quantitative Attribute Accuracy as Coefficient of Determination (R²)" ;
+        dqv:expectedDataType  xsd:double ;
+        dqv:inDimension       gkq:quantitativeAttributeAccuracy .
+
+gkq:QuantitativeAttributeAccuracyasRootMeanSquareErrorRMSE
+        a                     dqv:Metric ;
+        skos:definition       "The root mean square error (RMSE) quantifies the average dispersion of a set of observations from a known value. The smaller an RMSE value, the closer predicted and observed values are. Source: Meyer, Thomas (2012): Root Mean Square Error Compared to, and Contrasted with, Standard Deviation. In: Surveying and Land Information Science 72 (3), S. 107–108." ;
+        skos:prefLabel        "Quantitative Attribute Accuracy as Root Mean Square Error (RMSE)" ;
+        dqv:expectedDataType  xsd:double ;
+        dqv:inDimension       gkq:quantitativeAttributeAccuracy .
+
+gkq:QuantitativeAttributeAccuracyasMeanAbsoluteErrorMAE
+        a                     dqv:Metric ;
+        skos:definition       "The mean absolute error of a model with respect to a test set is the mean of the absolute values of the individual prediction errors on over all instances in the test set. Each prediction error is the difference between the true value and the predicted value for the instance. Source: Fürnkranz, Johannes; Chan, Philip K.; Craw, Susan; Sammut, Claude; Uther, William; Ratnaparkhi, Adwait et al. (2010): Mean Absolute Error. In: Claude Sammut und Geoffrey I. Webb (Hg.): Encyclopedia of Machine Learning. Boston, MA: Springer US, S. 652." ;
+        skos:prefLabel        "Quantitative Attribute Accuracy as Mean Absolute Error (MAE)" ;
+        dqv:expectedDataType  xsd:double ;
+        dqv:inDimension       gkq:quantitativeAttributeAccuracy .
+
+gkq:UA  a                     dqv:Metric ;
+        skos:definition       "The user's accuracy looks at an error matrix from the perspective of the end user of a land cover product. In essence, the user's accuracy calculates for a given class, how many pixels are actually what the classification claims they are. In statistical terms, the user's accuracy measures errors of commission (assigning pixels to an incorrect category). It is calculated as the number of pixels correctly identified as being in a given class divided by the total number of pixels assigned to that class. (<https://www2.geog.soton.ac.uk/users/trevesr/obs/rseo/accuracy_assessment__error_matrices.html>; 25.01.2022)" ;
+        skos:prefLabel        "User Accuracy" ;
+        dqv:expectedDataType  xsd:double ;
+        dqv:inDimension       gkq:thematicClassificationCorrectness .
+
+gkq:qualityRegister  skos:definition  "Container of all quality categories that are available in GeoKur" ;
+        skos:prefLabel   "GeoKur Quality Register"@en .

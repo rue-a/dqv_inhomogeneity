@@ -52,6 +52,7 @@ GSP = Namespace('http://www.opengis.net/ont/geosparql#')
 PROFILE = Namespace('https://ex.org/profile/#')
 EX = Namespace('https://ex.org/#')
 FAO = Namespace('https://www.fao.org/home/en/#')
+FAO_GEOMS = Namespace()
 
 namespaces = {
     'dct': DCT,
