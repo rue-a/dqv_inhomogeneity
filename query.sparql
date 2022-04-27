@@ -21,6 +21,7 @@ WHERE {
     BIND("40"^^xsd:double AS ?threshold)
     BIND(:forestGain AS ?quality_theme)
     ?quality_measurement profile:thematic ?quality_theme .
+    
     FILTER(?prod_acc_val > ?threshold && geof:sfIntersects(?bbox_columbia_wkt, ?extent_wkt))
     
     ?dataset dct:title ?dataset_title . 
