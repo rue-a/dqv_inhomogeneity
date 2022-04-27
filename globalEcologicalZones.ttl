@@ -10,12 +10,12 @@ fao:globalEcologicalZones2010Boreal a dct:Location,
     gsp:hasDefaultGeometry gez2010_geoms:boreal ;
     skos:definition "Up to 3 months over 10°C" ;
     skos:narrower fao:globalEcologicalZones2010 ;
-    skos:prefLabel "Boreal Ecological Zones 2010" .
+    skos:prefLabel "Boreal Ecological Zone 2010" .
 
 fao:globalEcologicalZones2010Polar a skos:Concept ;
     skos:definition "All months below 10°C" ;
     skos:narrower fao:globalEcologicalZones2010 ;
-    skos:prefLabel "Polar Ecological Zones 2010" .
+    skos:prefLabel "Polar Ecological Zone 2010" .
 
 fao:globalEcologicalZones2010Subtropical a dct:Location,
         gsp:Feature,
@@ -23,7 +23,7 @@ fao:globalEcologicalZones2010Subtropical a dct:Location,
     gsp:hasDefaultGeometry gez2010_geoms:subtropical ;
     skos:definition "Eight months or more over 10°C" ;
     skos:narrower fao:globalEcologicalZones2010 ;
-    skos:prefLabel "Subtropical Ecological Zones 2010" .
+    skos:prefLabel "Subtropical Ecological Zone 2010" .
 
 fao:globalEcologicalZones2010TPolar a dct:Location,
         gsp:Feature ;
@@ -35,7 +35,7 @@ fao:globalEcologicalZones2010Temperate a dct:Location,
     gsp:hasDefaultGeometry gez2010_geoms:temperate ;
     skos:definition "Four to eight months over 10°C" ;
     skos:narrower fao:globalEcologicalZones2010 ;
-    skos:prefLabel "Temperate Ecological Zones 2010" .
+    skos:prefLabel "Temperate Ecological Zone 2010" .
 
 fao:globalEcologicalZones2010Tropical a dct:Location,
         gsp:Feature,
@@ -43,7 +43,7 @@ fao:globalEcologicalZones2010Tropical a dct:Location,
     gsp:hasDefaultGeometry gez2010_geoms:tropical ;
     skos:definition "All months without frost: in marine areas over 18°C" ;
     skos:narrower fao:globalEcologicalZones2010 ;
-    skos:prefLabel "Tropical Ecological Zones 2010" .
+    skos:prefLabel "Tropical Ecological Zone 2010" .
 
 fao:globalEcologicalZones2010Water a dct:Location,
         gsp:Feature,
