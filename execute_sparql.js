@@ -15,11 +15,13 @@ async function sparql() {
         '&format=json';
     console.log(url)
 
-
+    document.getElementById("query_url").innerText = "\nQuery URL"
+    document.getElementById("query_url").href = url
     const response = await fetch(url);
 
 
-    console.log(url)
+
+
     if (response.ok) {
         const json = await response.json();
 

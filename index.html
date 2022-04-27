@@ -26,21 +26,53 @@
 
     </br></br>
     <textarea id="code" name="code">
-      PREFIX dc: <http://purl.org/dc/elements/1.1/>
-      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX dct: <http://purl.org/dc/terms/>
       PREFIX dqv: <http://www.w3.org/ns/dqv#>
-
-      SELECT ?s ?p ?c
+      PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+      PREFIX gsp: <http://www.opengis.net/ont/geosparql#>
+      PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+      PREFIX gkq: <https://geokur-dmp.geo.tu-dresden.de/quality-register#>
+      PREFIX gez2010_geoms: <https://github.com/rue-a/dqv_inhomogeneity/blob/master/gaez_2010_geometries/>
+      PREFIX profile: <https://ex.org/profile/#> 
+      PREFIX : <https://ex.org/#>
+      
+      SELECT DISTINCT ?dataset_title ?quality_indicator_label ?quality_extent_label ?prod_acc_val ?quality_theme_label ?quality_indicator_def ?quality_extent_def ?quality_theme_def
       WHERE {
-        ?s a dqv:QualityMeasurement
-      } LIMIT 10
+          ?dataset dqv:hasQualityMeasurement ?quality_measurement.
+          ?quality_measurement dqv:isMeasurementOf gkq:ProducersAccuracy .
+          ?quality_measurement dqv:value ?prod_acc_val .
+          ?quality_measurement dct:spatial ?quality_extent .
+          ?quality_extent gsp:hasDefaultGeometry ?extent_geom.
+          ?extent_geom gsp:asWKT ?extent_wkt .
+          BIND("POLYGON((-78.9909352282 -4.298186944190007,-78.9909352282 12.437303168200003,-66.8763258531 12.437303168200003,-66.8763258531 -4.298186944190007,-78.9909352282 -4.298186944190007))"^^gsp:wktLiteral AS ?bbox_columbia_wkt)
+          BIND("40"^^xsd:double AS ?threshold)
+          BIND(:forestGain AS ?quality_theme)
+          ?quality_measurement profile:thematic ?quality_theme .
+          
+          FILTER(?prod_acc_val > ?threshold && geof:sfIntersects(?bbox_columbia_wkt, ?extent_wkt))
+          
+          ?dataset dct:title ?dataset_title . 
+          gkq:ProducersAccuracy skos:prefLabel ?quality_indicator_label .
+          gkq:ProducersAccuracy skos:definition ?quality_indicator_def .    
+          ?quality_theme skos:prefLabel ?quality_theme_label .
+          ?quality_theme skos:definition ?quality_theme_def .
+          ?quality_extent skos:prefLabel ?quality_extent_label .
+          ?quality_extent skos:definition ?quality_extent_def .
+      }
     </textarea>
+
+
 
 
     <p><code>application/sparql-query</code>.</p>
 
     <button id="execute">execute</button>
 
+    <br>
+    <a id="query_url"></a>
+    <br>
+    <br>
     <div id="response"> </div>
 
   </article>
