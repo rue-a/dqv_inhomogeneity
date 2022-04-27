@@ -26,16 +26,23 @@ The profile can be implemented in two ways. Either by defining a node that descr
 
 `version_2/examples.ttl`: some examples that show how version 2 is used.
 
-`version_2/global_forest_change.ttl`: comprehensive example of application of profile in version 2. The file contains the metadata for the dataset *Global Forest Change* (Hansen et al., 2013; https://www.science.org/doi/10.1126/science.1244693). The data quality information is originally provided in the supplementary material in the form of text and tables; where it is disaggregated into different spatial, temporal and thematic scopes, e.g., error of forest loss from 2000 to 2012 in the tropical climate domain (https://www.science.org/doi/suppl/10.1126/science.1244693/suppl_file/hansen.sm.pdf, p. 17).
+`version_2/global_forest_change.ttl`: comprehensive example of application of profile in version 2. The file contains the metadata for the dataset _Global Forest Change_ (Hansen et al., 2013; <https://www.science.org/doi/10.1126/science.1244693>). The data quality information is originally provided in the supplementary material in the form of text and tables; where it is disaggregated into different spatial, temporal and thematic scopes, e.g., error of forest loss from 2000 to 2012 in the tropical climate domain (<https://www.science.org/doi/suppl/10.1126/science.1244693/suppl_file/hansen.sm.pdf>, p. 17).
 
 The example exposes the provided data quality information as queryable metadata.
 
-`gez_2010_geometries`: The folder contains the geometries of the Global Ecological Zones as defined by FAO in 2010 (available at: https://data.apps.fao.org/map/catalog/srv/eng/catalog.search#/metadata/2fb209d0-fd34-4e5e-a3d8-a13c241eb61b). The geometries are converted with `geometries2GeoSPARQL_wkt_ttl.py`.
+`gez_2010_geometries`: The folder contains the geometries of the Global Ecological Zones as defined by FAO in 2010 (available at: <https://data.apps.fao.org/map/catalog/srv/eng/catalog.search#/metadata/2fb209d0-fd34-4e5e-a3d8-a13c241eb61b>). The geometries are converted with `geometries2GeoSPARQL_wkt_ttl.py`.
 
 `quality_register`: contains descriptions of geodata quality indicators in DQV. SPARQL endpoint at: <https://geokur-dmp2.geo.tu-dresden.de/fuseki/geokur_quality_register/sparql>. See also: <https://geokur-dmp.geo.tu-dresden.de/quality-register>.
 
+## Application Example
 
-## Literature 
+The Global Forest Change dataset contains metadata that describes the dataset's quality dataset-wide, as well as spatially, temporally and thematically disaggregated (see Contents). Without this extension, in a data catalog environment, only the dataset-wide quality information can be included in queries; e.g., Select datasets where the producers's accuracy is higher than 70 %. With this extension, the query can be much more specific: Select datasets where the producer's accuracy of forest gain (theme) in the bounding box of Brazil (spatial) is higher than 70 %. The dataset-wide producer's accuracy of forest gain is higher than 70 %, so the dataset would be selected in the first case, although, the producer's accuracy of forest gain in the tropical domain is lower than 70 % (it is 48 %). The according query (that uses the profile) is as follows. It is assumed that the thematic concept of forest gain is defined and accessible in the Linked Data cloud.
 
-Hansen,   M.   C.,   Potapov,   P.   V.,   Moore,   R.,   Hancher,   M.,Turubanova,   S.   A.,   Tyukavina,   A.,   Thau,   D.,   Stehman,S.   V.,   Goetz,   S.   J.,   Loveland,   T.   R.,   Kommareddy,A.,   Egorov,   A.,   Chini,   L.,   Justice,   C.   O.,   and   Town-shend,  J.  R.  G.:  High-Resolution  Global  Maps  of  21st-Century   Forest   Cover   Change,   Science,   342,   850–853,https://doi.org/10.1126/science.1244693, 2013.
+```SPARQL
+```
 
+https://repo1.maven.org/maven2/org/apache/jena/jena-fuseki-geosparql/4.4.0/jena-fuseki-geosparql-4.4.0.jar
+
+## Literature
+
+Hansen,   M.   C.,   Potapov,   P.   V.,   Moore,   R.,   Hancher,   M.,Turubanova,   S.   A.,   Tyukavina,   A.,   Thau,   D.,   Stehman,S.   V.,   Goetz,   S.   J.,   Loveland,   T.   R.,   Kommareddy,A.,   Egorov,   A.,   Chini,   L.,   Justice,   C.   O.,   and   Town-shend,  J.  R.  G.:  High-Resolution  Global  Maps  of  21st-Century   Forest   Cover   Change,   Science,   342,   850–853,<https://doi.org/10.1126/science.1244693>, 2013.

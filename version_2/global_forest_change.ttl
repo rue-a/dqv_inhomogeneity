@@ -25,6 +25,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fao: <https://www.fao.org/home/en/#> .
+@prefix gez2010_geoms: <https://github.com/rue-a/dqv_inhomogeneity/blob/master/gaez_2010_geometries/> .
 
 :periodFrom2000to2012 a dct:PeriodOfTime , time:ProperInterval ;
     time:hasBeginning [ 
@@ -100,6 +101,7 @@
     dcat:temporalResolution "annual"^^xsd:duration ;
     dqv:hasQualityMeasurement
         
+
         # TROPICAL FOREST GAIN error matrix (user's and producer's accuracy values) from 2000 to 2012 
         [ a dqv:QualityMeasurement ;
             dct:temporal :periodFrom2000to2012 ;
@@ -336,7 +338,7 @@ The GEZ spatial dataset used by FAO has developed over the years from covering o
 fao:globalEcologicalZones2010Boreal a dct:Location,
         gsp:Feature,
         skos:Concept ;
-    gsp:hasDefaultGeometry gaez2010_geoms:boreal ;
+    gsp:hasDefaultGeometry gez2010_geoms:boreal ;
     skos:definition "Up to 3 months over 10°C" ;
     skos:narrower fao:globalEcologicalZones2010 ;
     skos:prefLabel "Boreal Ecological Zones 2010" .
@@ -349,19 +351,19 @@ fao:globalEcologicalZones2010Polar a skos:Concept ;
 fao:globalEcologicalZones2010Subtropical a dct:Location,
         gsp:Feature,
         skos:Concept ;
-    gsp:hasDefaultGeometry gaez2010_geoms:subtropical ;
+    gsp:hasDefaultGeometry gez2010_geoms:subtropical ;
     skos:definition "Eight months or more over 10°C" ;
     skos:narrower fao:globalEcologicalZones2010 ;
     skos:prefLabel "Subtropical Ecological Zones 2010" .
 
 fao:globalEcologicalZones2010TPolar a dct:Location,
         gsp:Feature ;
-    gsp:hasDefaultGeometry gaez2010_geoms:polar .
+    gsp:hasDefaultGeometry gez2010_geoms:polar .
 
 fao:globalEcologicalZones2010Temperate a dct:Location,
         gsp:Feature,
         skos:Concept ;
-    gsp:hasDefaultGeometry gaez2010_geoms:temperate ;
+    gsp:hasDefaultGeometry gez2010_geoms:temperate ;
     skos:definition "Four to eight months over 10°C" ;
     skos:narrower fao:globalEcologicalZones2010 ;
     skos:prefLabel "Temperate Ecological Zones 2010" .
@@ -369,7 +371,7 @@ fao:globalEcologicalZones2010Temperate a dct:Location,
 fao:globalEcologicalZones2010Tropical a dct:Location,
         gsp:Feature,
         skos:Concept ;
-    gsp:hasDefaultGeometry gaez2010_geoms:tropical ;
+    gsp:hasDefaultGeometry gez2010_geoms:tropical ;
     skos:definition "All months without frost: in marine areas over 18°C" ;
     skos:narrower fao:globalEcologicalZones2010 ;
     skos:prefLabel "Tropical Ecological Zones 2010" .
@@ -377,7 +379,7 @@ fao:globalEcologicalZones2010Tropical a dct:Location,
 fao:globalEcologicalZones2010Water a dct:Location,
         gsp:Feature,
         skos:Concept ;
-    gsp:hasDefaultGeometry gaez2010_geoms:water ;
+    gsp:hasDefaultGeometry gez2010_geoms:water ;
     skos:narrower fao:globalEcologicalZones2010 ;
     skos:prefLabel "Global Ecological Zones 2010 - Water" .
 

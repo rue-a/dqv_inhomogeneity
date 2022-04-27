@@ -62,13 +62,13 @@ namespaces = {
     'profile': PROFILE,
     ':': EX,
     'fao': FAO,
-    'gaez2010_geoms': FAO_GEOMS,
+    'gez2010_geoms': FAO_GEOMS,
     'skos': SKOS
 }
 
 namespaces_geoms = {
     'gsp': GSP,
-    'gaez2010_geoms': FAO_GEOMS,
+    'gez2010_geoms': FAO_GEOMS,
 }
 
 

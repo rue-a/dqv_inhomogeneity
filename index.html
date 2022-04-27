@@ -1,0 +1,48 @@
+<!doctype html>
+
+<head>
+  <title>CodeMirror: SPARQL mode</title>
+  <meta charset="utf-8" />
+  <link rel=stylesheet href="codemirror/doc/docs.css">
+
+  <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+  <script src="codemirror/lib/codemirror.js"></script>
+  <script src="codemirror/addon/edit/matchbrackets.js"></script>
+  <script src="codemirror_sparql.js"></script>
+  <style>
+    .CodeMirror {
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <h2>SPARQL</h2>
+    <!-- <input type="text" id="endpoint" style="width: 500px;" value="http://localhost:3030/ds/sparql"> -->
+    <input type="text" id="endpoint" style="width: 500px;"
+      value="https://geokur-dmp2.geo.tu-dresden.de/fuseki/ckan_mirror/sparql">
+    </br></br>
+    <textarea id="code" name="code">
+      PREFIX dc: <http://purl.org/dc/elements/1.1/>
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX dqv: <http://www.w3.org/ns/dqv#>
+
+      SELECT ?s ?p ?c
+      WHERE {
+        ?s a dqv:QualityMeasurement
+      } LIMIT 10
+    </textarea>
+
+
+    <p><code>application/sparql-query</code>.</p>
+
+    <button id="execute">execute</button>
+
+    <div id="response"> </div>
+
+  </article>
+
+  <script src="execute_sparql.js"></script>
+</body>
