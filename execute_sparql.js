@@ -15,13 +15,9 @@ async function sparql() {
         '&format=json';
     console.log(url)
 
-    let response;
-    if (document.getElementById("no-cors").checked) {
-        console.log("no cors")
-        response = await fetch(url, { proxy: "http://localhost:3030", mode: "no-cors" });
-    } else {
-        response = await fetch(url);
-    }
+
+    const response = await fetch(url);
+
 
     console.log(url)
     if (response.ok) {
