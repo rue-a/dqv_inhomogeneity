@@ -32,6 +32,8 @@ The example exposes the provided data quality information as queryable metadata.
 
 `quality_register`: contains descriptions of geodata quality indicators in DQV. SPARQL endpoint at: <https://geokur-dmp2.geo.tu-dresden.de/fuseki/geokur_quality_register/sparql>. See also: <https://geokur-dmp.geo.tu-dresden.de/quality-register>.
 
+`AGILE?Inhomogeneity.pptx`: Presentation at AGILE conference 2022, Vilnius, Lithuania.
+
 ## Application Example
 
 The Global Forest Change dataset contains metadata that describes the dataset's quality dataset-wide, as well as spatially, temporally and thematically disaggregated (see Contents). Without this extension, in a data catalog environment, only the dataset-wide quality information can be included in queries; e.g., Select datasets where the producers's accuracy is higher than 70 %. With this extension, the query can be much more specific: Select datasets where the producer's accuracy of forest gain (theme) in an area that intersects the bounding box of Columbia (spatial) is higher than 70 %. The dataset-wide producer's accuracy of forest gain is higher than 70 %, so the dataset would be selected in the first case, although, the producer's accuracy of forest gain in the tropical domain is lower than 70 % (it is 48 %). The according query (that uses the profile) is as follows. It is assumed that the thematic concept of forest gain is defined and accessible in the Linked Data cloud.
