@@ -1,6 +1,6 @@
 # Inhomogeneity in Data Quality - A Profile for DQV
 
-This repository accompanies the shortpaper __Modelling Inhomogeneous Geodata Quality in a Dataset's Metadata__ [//link]. Please refer to this publication for a comprehensive description and the rational behind the profile.
+This repository accompanies the shortpaper __Modelling Inhomogeneous Geodata Quality in a Dataset's Metadata__ [https://doi.org/10.5194/agile-giss-3-59-2022]. Please refer to this publication for a comprehensive description and the rational behind the profile.
 
 DQV (Data Quality Vocabulary): <https://www.w3.org/TR/vocab-dqv/>
 
